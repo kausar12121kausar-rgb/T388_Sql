@@ -53,3 +53,33 @@ update employee set address = "Dombivali" where department = "IT"; -- here where
 update employee set Title = "Mr" where Gender = "Male";
 update employee set Title = "Mrs" where Gender = "Female";
 update employee set Bonus = salary*0.05; -- Mathematical conditon use in SQL 
+
+
+
+use t388;
+create table kisan_info
+(ID int unique not null,
+Name varchar (50) unique not null,
+age int check (age>=18),
+email_ID varchar(40) default "dummy@gmail.com"
+);
+desc kisan_info;
+insert into kisan_info values
+(103,"das",21,default);
+alter table kisan_info modify age int check (age>=21);
+show create table kisan_info;
+select distinct department from employee;
+select distinct gender from employee;
+select database ();-- to check in which database 
+
+select * from employee
+where department ="It" or department ="finance";
+
+
+
+
+select * from kisan_info;
+select * from employee;
+
+
+
