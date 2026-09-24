@@ -147,6 +147,72 @@ select truncate (1223456.8765432,1);-- we do in excel for increasing and dicreas
 select truncate (1223456.8765432,0);
 select truncate (1223456.8765432,-1); -- now here -1 se wo 5.6 nhi honga wo actully 6 ko 0 kr denga usko remove kr denga 
 select exp(2);
+select power(2,4);
+select pow(2,4);
+select sqrt(169);
+select sqrt(16);
+select sqrt(salary) from employee;
+select concat("Good"," ","Morning") as remark;
+select *,concat(fullname, "@itvedant") as code from employee;
+select*, lower(fullname) as newname, upper(fullname) as CAPITALNAME from employee;
+
+-- alter table employee add Email varchar (50);
+alter table employee modify Email varchar (50);
+update employee set Email = concat(fullname, "@gmail.com");
+select replace("Hello Everyone, Good Morning" , "Morning","Night") as statement;
+select fullname, replace(fullname, "Mohanty", "Patil") as changedname from employee;
+select fullname, replace(fullname, "Mohanty", "Patil") as changed,reverse(fullname) from employee;
+select fullname, length(fullname) from employee;
+select salary, length(salary) from employee;
+select substring("Maharashtra", 3 ,5);
+select fullname,length(fullname),
+ltrim(fullname),length(ltrim(fullname)) as ltrim_length,
+rtrim(fullname),length(rtrim(fullname)) as rtrim_length,
+trim(fullname),length(trim(fullname))as all_trim_length 
+from trimmer;
+
+
+-- sub-query
+select age from employee where employeeid = "1002";
+select age from employee where fullname = "Mary Smith";
+select * from employee where age = (select age from employee where fullname = "Mary Smith");
+
+select * from employee where salary = (select salary from employee where fullname = "John Doe");
+select * from employee where department = (select department from employee where fullname = "John Doe");
+select max(salary) from employee;
+select max(salary) from employee where salary<(select max(salary) from employee);
+select min(salary) from employee where salary>(select min(salary) from employee);
+select max(salary) from employee where salary<(select max(salary) from employee where salary<(select max(salary) from employee));
+
+
+-- MULTIPLE ROW SUB QUERY--
+use T388;
+select age from employee where EmployeeId in (1002,1003);  
+select * from employee
+ where age in (select age from employee where EmployeeId in (1002,1003));
+
+
+-- ANY,ALL (where in ALL use and logical oprator , and in ANY we use or oprator)--   any gratet than minimum, any reater than maximum , all greater than maximum 
+select distinct salary from employee;
+select * from employee where
+Salary > any (select salary from employee where employeeid between 1001 and 1003);
+select * from employee where
+salary < any (select salary from employee where employeeid between 1001 and 1003);
+
+select * from employee where
+salary > all (select salary from employee where employeeid between 1001 and 1003);
+
+select * from employee where
+salary <= all (select salary from employee where employeeid between 1001 and 1003);
+
+select * from employee where
+salary < all (select salary from employee where employeeid between 1001 and 1003);
+
+select * from employee;
+
+
+-- JOINS --
+
    
    
     
