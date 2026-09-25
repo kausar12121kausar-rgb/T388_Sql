@@ -212,6 +212,46 @@ select * from employee;
 
 
 -- JOINS --
+use T388;
+-- SELECT Table1.Emp_Id, Table2.Age FROM Table1 RIGHT JOIN Table2 ON Table1.Emp_Id = Table2.Emp_Id ORDER BY Table1.Name;
+-- select employee.EmployeeId, projects.DURATION from employee right join projects on employee.EmployeeId = projects.EmployeeId  order by employee.name;
+
+select name_t388.id,name,salary from
+name_t388
+join
+salary_t388
+on salary_t388.id = name_t388.id;
+select * from salary_t388;
+
+select name_t388.id,name,salary from
+name_t388
+left join
+salary_t388
+on salary_t388.id = name_t388.id;
+
+select name_t388.id,name,salary from 
+name_t388
+right join
+salary_t388
+on salary_t388.id = name_t388.id;
+
+
+select name_t388.id,name,salary from -- isme bs tables aage piccche krdiye hai 
+salary_t388
+right join
+name_t388
+on salary_t388.id = name_t388.id;
+
+
+
+
+
+
+
+select * from employee;
+select * from projects;
+
+
 
    
    
