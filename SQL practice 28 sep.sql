@@ -265,6 +265,23 @@ on s.ID = n.ID;
 
 
 
+-- Foreign key --
+create database FK_T388;
+use FK_T388;
+create Table students
+(ID int primary key auto_increment,
+name varchar(20));
+insert into students values
+(1,"kunal");
+insert into students (name) values ("suman");
+desc students;
+select * from  students;
+
+create table info 
+(id int, 
+scores int, foreign key (id) references students (id));
+insert into info values (1,"200"), (2,"300");
+select * from  info;
 
 
 
